@@ -5,19 +5,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Logic logic = new Logic();
-        System.out.println("for addition use +, subtraction use -, division use /, and multiplication use *");
-        double a = scanner.nextDouble();
-        String operator = scanner.next();
-        double b = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.println(a + operator + b);
-        try {
-            System.out.println(logic.calculate(a, b, operator));
-        } catch (Exception e) {
-            System.out.println("Something doesn't seem to be working. Please try that again");
-        }
+        //chained operations
+        //negatives
+        //loop
 
+        Scanner scanner = new Scanner(System.in);
+        Inputs inputs = new Inputs();
+        Logic logic = new Logic();
+
+        do {
+            System.out.println("for addition use +, subtraction use -, division use /, and multiplication use *.\nFor squaring, use ^2 (can also cube!), and for sqaure roots use √. Type C to reset the calculation.");
+            inputs.firstCalculation(scanner, logic);
+        }while(logic.isCleared());
+        do{
+            inputs.subsequentCalculations();
+        }while(!logic.isCleared());
+        //have loop - if cleared is true, then run first calculation
+        // after, set cleared to false, then run subsequent in a loop until cleared is true (typed C)
     }
 }

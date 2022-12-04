@@ -1,21 +1,33 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Logic {
+
+    private boolean cleared = false;
+
+    public boolean isCleared() {
+        return cleared;
+    }
+
+    public void setCleared(boolean cleared) {
+        this.cleared = cleared;
+    }
 
     public double calculate(double a, double b, String operator){
         double result = 0;
         switch(operator){
-            case "+": result = a + b;
+            case "+": result = (double) a + b;
             break;
-            case "-": result = a - b;
+            case "-": result = (double) a - b;
             break;
-            case "*": result = a * b;
+            case "*": result = (double) a * b;
             break;
-            case "/": result = a / b;
+            case "/": result = (double) a / b;
             break;
-            case "√": result = Math.sqrt(a);
+            case "√": result = (double) Math.sqrt(a);
             break;
-            case "squared": squared(a);
+            case "^": result = (double) Math.pow(a, b);
             break;
             default:
                 result = 0;
@@ -23,9 +35,15 @@ public class Logic {
         }
         return result;
     }
-
-    public double squared(double a){
-        return a * a;
+    public double calculate(double a, String operator){
+        double result = 0;
+        if(Objects.equals(operator, "√")) {
+            result = (double) Math.sqrt(a);
+        }
+        return result;
     }
 
+    public void clear(String operator) {
+        setCleared(true);
+    }
 }
