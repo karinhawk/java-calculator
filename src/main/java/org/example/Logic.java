@@ -14,6 +14,16 @@ public class Logic {
         this.cleared = cleared;
     }
 
+    private boolean running = true;
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
     public double calculate(double a, double b, String operator){
         double result = 0;
         switch(operator){
