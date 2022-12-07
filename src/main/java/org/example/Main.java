@@ -13,7 +13,7 @@ public class Main {
         double a = 0;
         do {
             do {
-                System.out.println("for addition use +, subtraction use -, division use /, and multiplication use *.\nFor squaring, use ^2 (can also cube!), and for sqaure roots use √. Type C to reset the calculation.");
+                System.out.println("for addition use +, subtraction use -, division use /, and multiplication use *.\nFor squaring, use ^2 (can also cube!), and for square roots use √. Type C to reset the calculation.");
                 a = inputs.firstCalculation(scanner, logic);
                 logic.setCleared(false);
             } while (logic.isCleared());
